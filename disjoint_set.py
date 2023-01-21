@@ -94,18 +94,18 @@ class ListSet:
         i1.tl = i2.tl
         del i2
 
-def execOperation(queryOpt, x, y=''):
-    if y == '':
-        return queryOpt == x
-    else:
-        if queryOpt == 1:
-            print("Query 1")
-        elif queryOpt == 2:
-            print("Query 2")
-        elif queryOpt == 3:
-            print("Query 3")
+    def execOperation(queryOpt, x, y=''):
+        if y == '':
+            return queryOpt == x
         else:
-            print("Query not defined")
+            if queryOpt == 1:
+                
+            elif queryOpt == 2:
+                print("Query 2")
+            elif queryOpt == 3:
+                print("Query 3")
+            else:
+                print("Query not defined")
 
 def main():
     execOperation(3, 3)
