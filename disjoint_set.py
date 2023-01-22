@@ -57,7 +57,13 @@ if __name__ == "__main__":
 
     '''
 
-
+'''
+ This is the first point project for ADA course from Universidad del Valle.
+ @authors: Juan Camilo Ortiz Gonzalez - 2023921
+           Paul Rojas - 
+           Nicolas - 
+ https://campusvirtual.univalle.edu.co/moodle/pluginfile.php/3959645/mod_resource/content/3/enunciado_proyecto_ada.pdf
+'''
 from collections import defaultdict
 
 class Node:
@@ -98,44 +104,47 @@ class ListSet:
         if y != "NoN":
             print("Valor de Y", y)
             if queryOpt == 1:
-                print("Query 1")  # TODO delete line
+                print("Query 1")
                 if x <= y:
                     self.makeset(x)
                     self.makeset(y)
                     self.union(self.find(x), self.find(y))
-                    print("HOLAAA", self.find(x) == self.find(y)) # TODO delete line
+                    print("HOLAAA", self.find(x) == self.find(y))
                 else:
                     print("Can't execute, invalid values for X and Y")
             elif queryOpt == 2:
-                print("Query 2")  # TODO delete line
+                print("Query 2")
                 if x <= y:
-                    print("YESSS") # TODO delete line
+                    print("YESSS")
                     for i in range(x, y+1):
                         self.makeset(i)
                         if i >= x+1:
                             self.union(self.find(i-1), self.find(i))
                             print("DONE")
-                    print(self.find(7) == self.find(6)) # TODO delete line
+                    print(self.find(7) == self.find(6))
                 else:
                     print("Can't execute, invalid values for X and Y")
             elif queryOpt == 3:
-                print("Query 3")  # TODO delete line
+                print("Query 3")
                 first_elem = self.find(x)
                 second_elem = self.find(y)
                 print(first_elem == second_elem)
             else:
-                print("Query not defined")  # TODO delete line
+                print("Query not defined")
         else:
-            print("WHAT", y)  # TODO delete line
+            print("WHAT", y)
             print(queryOpt == x)
+
+
+    def 
 
 def main():
     #execOperation(3, 3)
-    a = ListSet()
-    a.makeset(5)
-    a.makeset(7)
+    # a = ListSet()
+    # a.makeset(5)
+    # a.makeset(7)
     # a.union(a.find(1), a.find(5))
-    a.execOperation(2, 5, 7)
+    # a.execOperation(2, 5, 7)
     # a.makeset(13)
     # a.makeset(25)
     # a.makeset(45)
