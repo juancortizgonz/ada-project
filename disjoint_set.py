@@ -99,6 +99,13 @@ class ListSet:
             print("Valor de Y", y)
             if queryOpt == 1:
                 print("Query 1")  # TODO delete line
+                if x <= y:
+                    self.makeset(x)
+                    self.makeset(y)
+                    self.union(self.find(x), self.find(y))
+                    print("HOLAAA", self.find(x) == self.find(y)) # TODO delete line
+                else:
+                    print("Can't execute, invalid values for X and Y")
             elif queryOpt == 2:
                 print("Query 2")  # TODO delete line
             elif queryOpt == 3:
@@ -118,7 +125,7 @@ def main():
     a.makeset(1)
     a.makeset(7)
     # a.union(a.find(1), a.find(5))
-    a.execOperation(3, 1, 7)
+    a.execOperation(1, 5, 7)
     # a.makeset(13)
     # a.makeset(25)
     # a.makeset(45)
