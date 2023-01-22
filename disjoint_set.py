@@ -94,28 +94,37 @@ class ListSet:
         i1.tl = i2.tl
         del i2
 
-    def execOperation(queryOpt, x, y=''):
-        if y == '':
-            return queryOpt == x
-        else:
+    def execOperation(self, queryOpt, x, y="NoN"):
+        if y != "NoN":
+            print("Valor de Y", y)
             if queryOpt == 1:
-                
+                print("Query 1")  # TODO delete line
             elif queryOpt == 2:
-                print("Query 2")
+                print("Query 2")  # TODO delete line
             elif queryOpt == 3:
-                print("Query 3")
+                print("Query 3")  # TODO delete line
+                first_elem = self.find(x)
+                second_elem = self.find(y)
+                print(first_elem == second_elem)
             else:
-                print("Query not defined")
+                print("Query not defined")  # TODO delete line
+        else:
+            print("WHAT", y)  # TODO delete line
+            print(queryOpt == x)
 
 def main():
-    execOperation(3, 3)
+    #execOperation(3, 3)
     a = ListSet()
-    a.makeset(13)
-    a.makeset(25)
-    a.makeset(45)
-    a.makeset(65)
+    a.makeset(1)
+    a.makeset(7)
+    # a.union(a.find(1), a.find(5))
+    a.execOperation(3, 1, 7)
+    # a.makeset(13)
+    # a.makeset(25)
+    # a.makeset(45)
+    # a.makeset(65)
 
-    print(f"find(13): {a.find(13)}")
+    """ print(f"find(13): {a.find(13)}")
     print(f"find(25): {a.find(25)}")
     print(f"find(65): {a.find(65)}")
     print(f"find(45): {a.find(45)}")
@@ -123,7 +132,7 @@ def main():
     print("Union(find(65), find(45))")
     a.union(a.find(65), a.find(45))
     print(f"find(65): {a.find(65)}")
-    print(f"find(45): {a.find(45)}")
+    print(f"find(45): {a.find(45)}") """
 
 if __name__ == "__main__":
     main()
