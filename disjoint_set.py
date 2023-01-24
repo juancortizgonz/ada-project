@@ -43,44 +43,62 @@ class ListSet:
 
     def execOperation(self, queryOpt, x, y="NoN"):
         if y != "NoN":
-            print("Valor de Y", y)
             if queryOpt == 1:
-                print("Query 1")
                 if x <= y:
                     self.makeset(x)
                     self.makeset(y)
                     self.union(self.find(x), self.find(y))
-                    print("HOLAAA", self.find(x) == self.find(y))
                 else:
                     print("Can't execute, invalid values for X and Y")
             elif queryOpt == 2:
-                print("Query 2")
                 if x <= y:
-                    print("YESSS")
                     for i in range(x, y+1):
                         self.makeset(i)
                         if i >= x+1:
                             self.union(self.find(i-1), self.find(i))
-                            print("DONE")
-                    print(self.find(7) == self.find(6))
                 else:
                     print("Can't execute, invalid values for X and Y")
             elif queryOpt == 3:
-                print("Query 3")
                 first_elem = self.find(x)
                 second_elem = self.find(y)
-                print(first_elem == second_elem)
+                return first_elem == second_elem
             else:
                 print("Query not defined")
         else:
-            print("WHAT", y)
-            print(queryOpt == x)
-
-
-    def 
+            return queryOpt == x
 
 def main():
-    #execOperation(3, 3)
+    path_input = input("Ingrese la ruta del archivo de entrada:")
+    input_file = open(path_input, "r")
+    output_file = open("output.txt", "w") # Change the name for creating a new file for each output, otherwise will be over-written
+    
+    total_input = input_file.readlines()
+    print(total_input)
+    converted_input = []
+    output_list = []
+    for i in range(0, len(total_input)):
+        if i == 0:
+            converted_input.append(total_input[i].replace("\n", "").split(" ", 1))
+        else:
+            converted_input.append(total_input[i].replace("\n", "").split(" "))
+    # print(converted_input)
+
+    input_file.close() # Free up memory
+
+    a = ListSet() # Initialize data structure
+    for i in range(0, len(converted_input)):
+        if i != 0:
+            first_param = int(converted_input[i][0])
+            second_param = int(converted_input[i][1])
+            third_param = int(converted_input[i][2])
+            result = a.execOperation(first_param, second_param, third_param)
+            if type(result) == bool:
+                output_list.append(str(result)+"\n")
+            print(output_list)
+    if len(output_list) > 0:
+                output_file.writelines(output_list)
+
+    # execOperation(3, 3)
     # a = ListSet()
     # a.makeset(5)
     # a.makeset(7)
