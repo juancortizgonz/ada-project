@@ -52,13 +52,17 @@ class ListSet:
                     print("Can't execute, invalid values for X and Y")
             elif queryOpt == 2:
                 if x <= y:
-                    for i in range(x, y+1):
+                    self.makeset(x)
+                    self.makeset(y)
+                    for i in range(x+1, y):
                         self.makeset(i)
                         if i >= x+1:
                             self.union(self.find(i-1), self.find(i))
                 else:
                     print("Can't execute, invalid values for X and Y")
             elif queryOpt == 3:
+                self.makeset(x)
+                self.makeset(y)
                 first_elem = self.find(x)
                 second_elem = self.find(y)
                 return first_elem == second_elem
@@ -79,13 +83,18 @@ def main():
     for i in range(0, len(total_input)):
         if i == 0:
             converted_input.append(total_input[i].replace("\n", "").split(" ", 1))
+            print(converted_input[i])
         else:
             converted_input.append(total_input[i].replace("\n", "").split(" "))
+            print(converted_input[i])
+    print(converted_input)
     # print(converted_input)
 
     input_file.close() # Free up memory
 
     a = ListSet() # Initialize data structure
+
+    # print(a.execOperation(3, 4, 5))
     for i in range(0, len(converted_input)):
         if i != 0:
             first_param = int(converted_input[i][0])
