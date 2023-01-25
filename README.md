@@ -1,2 +1,4 @@
 # ada-project
-Project for ADA
+
+## For documentation
+Visit <a href="html/DisjointSet.html" title="Docs">this link for documentation.</a>
