@@ -1,3 +1,5 @@
+import time
+start = time.time()
 '''
  Represents a Disjoint Set Union data structure
  @authors: Juan Camilo Ortiz
@@ -112,6 +114,10 @@ Returns:
 '''
 def printSets(universe, actual_set):
     print([actual_set.find(i) for i in universe])
+
+time.sleep(1)
+end = time.time()
+print("Total execution time: ", end-start)
  
  
 if __name__ == '__main__':
